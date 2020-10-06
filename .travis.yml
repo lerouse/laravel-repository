@@ -1,0 +1,17 @@
+
+sudo: false
+
+language: php
+
+php:
+  - 7.1
+  - 7.2
+  - 7.3
+  - 7.4
+
+cache:
+  directories:
+    - $HOME/.composer/cache/files
+
+before_install:
+  - travis_retry composer install
