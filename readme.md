@@ -93,7 +93,7 @@ The following methods are available out of the box:-
 | ```createMany```      | Boolean               | Create a collection of new Models                   |
 | ```update```          | Model                 | Update a Model by its Primary Key                   |
 | ```updateMany```      | Boolean               | Update a collection of Models                       |
-| ```delete```          | Model|null            | Delete a Model by its Primary Key                   |
+| ```delete```          | Model/null            | Delete a Model by its Primary Key                   |
 | ```deleteMany```      | void                  | Delete a collection of Models by their Primary Keys |
 
 ### Using a Repository

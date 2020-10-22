@@ -47,11 +47,30 @@ abstract class EloquentRepository implements RepositoryInterface
      * Find a Model by its Primary Key
      *
      * @param mixed $id
+     * @param bool $fail
      * @return mixed
      */
-    public function find($id)
+    public function find($id, bool $fail = true)
     {
-        return $this->builder()->findOrFail($id);
+        if ($fail) {
+            return $this->builder()->findOrFail($id);
+        }
+
+        return $this->builder()->find($id);
+    }
+
+    /**
+     * Find Many models by its primary Key
+     *
+     * @param array $ids
+     * @param string|null $column
+     * @return Collection
+     */
+    public function findMany(array $ids, string $column = null): Collection
+    {
+        $column = $column ?? $this->getModelPrimaryKey();
+
+        return $this->builder()->whereIn($this->getModelTable() . '.' . $column, $ids)->get();
     }
 
     /**
@@ -118,7 +137,7 @@ abstract class EloquentRepository implements RepositoryInterface
     {
         $column = $column ?? $this->getModelPrimaryKey();
 
-        $result = $this->builder()->whereIn($column, $ids)->update($data);
+        $result = $this->builder()->whereIn($this->getModelTable() . '.' . $column, $ids)->update($data);
 
         Event::dispatch(new ManyModelsUpdated(
             get_class($this->builder()->getModel())
@@ -155,7 +174,7 @@ abstract class EloquentRepository implements RepositoryInterface
     {
         $column = $column ?? $this->getModelPrimaryKey();
 
-        $this->builder()->whereIn($column, $ids)->delete();
+        $this->builder()->whereIn($this->getModelTable() . '.' . $column, $ids)->delete();
 
         Event::dispatch(new ManyModelsDeleted(
             get_class($this->builder()->getModel())
@@ -172,7 +191,7 @@ abstract class EloquentRepository implements RepositoryInterface
     {
         $column = $column ?? $this->getModelPrimaryKey();
 
-        $latest = $this->builder()->orderBy($column, 'desc')->first();
+        $latest = $this->builder()->orderBy($this->getModelTable() . '.' . $column, 'desc')->first();
 
         return $latest ? ($latest->getKey() + 1) : 1;
     }

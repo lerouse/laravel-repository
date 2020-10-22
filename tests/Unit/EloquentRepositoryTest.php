@@ -3,6 +3,7 @@
 namespace Lerouse\LaravelRepository\Tests\Unit;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Lerouse\LaravelRepository\EloquentRepository;
 use Lerouse\LaravelRepository\RepositoryInterface;
 use Lerouse\LaravelRepository\Tests\Fixtures\Models\TestModel;
@@ -43,6 +44,31 @@ class EloquentRepositoryTest extends LaravelTestCase
         $model = factory(TestModel::class)->create();
 
         self::assertEquals($model->toArray(), $this->repository->find($model->getKey())->toArray());
+    }
+
+    /** @test **/
+    public function finding_a_model_throws_exception_if_not_found(): void
+    {
+        $this->expectException(ModelNotFoundException::class);
+
+        $this->repository->find(1);
+    }
+
+    /** @test **/
+    public function finding_a_model_that_is_not_found_with_fail_set_to_false_returns_null(): void
+    {
+        self::assertNull($this->repository->find(1, false));
+
+    }
+
+    /** @test **/
+    public function can_find_many(): void
+    {
+        $collection = factory(TestModel::class, 2)->create();
+
+        $ids = $collection->pluck('id')->toArray();
+
+        self::assertEquals($collection->toArray(), $this->repository->findMany($ids)->toArray());
     }
 
     /** @test **/

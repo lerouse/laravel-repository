@@ -33,7 +33,7 @@ trait HasRepository
      */
     public function getRepositoryNamespace(): string
     {
-        return config('repository.namespace');
+        return config('repository.namespace', '\App\Repositories\Model');
     }
 
     /**
