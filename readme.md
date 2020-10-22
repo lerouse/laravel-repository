@@ -89,6 +89,7 @@ The following methods are available out of the box:-
 | ```all```             | Collection            | Get all Models                                      |
 | ```paginate```        | LengthAwarePaginator  | Get all models as Paginated Results                 |
 | ```find```            | Model                 | Find a Model by its Primary Key                     |
+| ```findMany```        | Collection            | Find a collection of Models by their Primary Keys   |
 | ```create```          | Model                 | Create a new Model                                  |
 | ```createMany```      | Boolean               | Create a collection of new Models                   |
 | ```update```          | Model                 | Update a Model by its Primary Key                   |
