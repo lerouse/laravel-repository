@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.2.0 (22/10/2020)
+
+## Changed
+
+- Changed createMany method parameters from Collection to Array
+
 ## v1.1.0 (22/10/2020)
 
 ## Changed

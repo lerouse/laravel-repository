@@ -87,12 +87,10 @@ class EloquentRepositoryTest extends LaravelTestCase
     /** @test **/
     public function can_create_many(): void
     {
-        $collection = collect([
+        $this->repository->createMany([
             ['value' => 'Model 1'],
             ['value' => 'Model 2']
         ]);
-
-        $this->repository->createMany($collection);
 
         $this->assertDatabaseHas('test_models', [
             'id' => 1,

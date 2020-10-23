@@ -42,10 +42,10 @@ interface RepositoryInterface
     /**
      * Create a collection of new Models
      *
-     * @param Collection $collection
+     * @param array $data
      * @return mixed
      */
-    public function createMany(Collection $collection);
+    public function createMany(array $data);
 
     /**
      * Update a Model by its Primary Key

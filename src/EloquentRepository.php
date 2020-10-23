@@ -91,12 +91,12 @@ abstract class EloquentRepository implements RepositoryInterface
     /**
      * Create a collection of new Models
      *
-     * @param Collection $collection
+     * @param array $data
      * @return bool
      */
-    public function createMany(Collection $collection): bool
+    public function createMany(array $data): bool
     {
-        $result = $this->builder()->getModel()->insert($collection->toArray());
+        $result = $this->builder()->getModel()->insert($data);
 
         Event::dispatch(new ManyModelsCreated(
             get_class($this->builder()->getModel())

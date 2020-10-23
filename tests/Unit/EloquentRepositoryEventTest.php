@@ -69,12 +69,10 @@ class EloquentRepositoryEventTest extends LaravelTestCase
     /** @test **/
     public function creating_many_models_fires_event(): void
     {
-        $collection = collect([
+        $this->repository->createMany([
             ['value' => 'Model 1'],
             ['value' => 'Model 2']
         ]);
-
-        $this->repository->createMany($collection);
 
         Event::assertDispatched(ManyModelsCreated::class, function ($event) {
             return $event->model === TestModel::class;
