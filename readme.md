@@ -4,7 +4,7 @@
 <a href="https://packagist.org/packages/lerouse/laravel-repository"><img src="https://img.shields.io/packagist/v/lerouse/laravel-repository" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/lerouse/laravel-repository"><img src="https://img.shields.io/packagist/l/lerouse/laravel-repository" alt="License"></a>
 
-Model Repository implementation for the Laravel framework v5.6 and above.
+Model Repository implementation for the Laravel framework ^v6.0 and above.
 
 This package provides a structured framework to begin implementing a simple Model Repository structure in an existing 
 Laravel application. 

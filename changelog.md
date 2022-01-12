@@ -1,5 +1,10 @@
 # Changelog
 
+## v2.0.0
+
++ PHP supported versions are now ^7.4|^8.0|^8.1
++ Remove support for Laravel v5.x
+
 ## v1.2.0 (23/10/2020)
 
 ## Changed
