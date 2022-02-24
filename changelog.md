@@ -1,5 +1,10 @@
 # Changelog
 
+## v2.1.0
+
++ PHP Supported Versions ^8.0|^8.1
++ Add support for Laravel 9
+
 ## v2.0.0
 
 + PHP supported versions are now ^7.4|^8.0|^8.1
