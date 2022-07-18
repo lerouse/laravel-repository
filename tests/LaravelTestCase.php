@@ -3,6 +3,7 @@
 namespace Lerouse\LaravelRepository\Tests;
 
 use Illuminate\Foundation\Application;
+use Lerouse\LaravelRepository\LaravelRepositoryServiceProvider;
 use Orchestra\Testbench\TestCase;
 
 class LaravelTestCase extends TestCase
@@ -29,6 +30,20 @@ class LaravelTestCase extends TestCase
         $config = include __DIR__ . '/../config/repository.php';
 
         $app['config']->set('repository.namespace', 'Lerouse\LaravelRepository\Tests\Fixtures\Repositories');
+    }
+
+
+    /**
+     * Load package service provider.
+     *
+     * @param Application $app
+     * @return array
+     */
+    protected function getPackageProviders($app): array
+    {
+        return [
+            LaravelRepositoryServiceProvider::class,
+        ];
     }
 
     /**

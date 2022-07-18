@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.2.1
+
++ Add GitHub workflow actions CI
+
+## v2.2.0
+
++ Add RepositoryManagerService to enable easier access to autoload repositories
+  + Model name
+  + Model FQDN
+  + Repository name
+  + Repository FQDN
++ Add UsesRepositoryManager trait to allow quick access to RM
+
 ## v2.1.0
 
 + PHP Supported Versions ^8.0|^8.1
