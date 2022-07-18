@@ -1,8 +1,9 @@
 # Laravel Model Repository
 
-<a href="https://travis-ci.org/lerouse/laravel-repository"><img src="https://travis-ci.org/lerouse/laravel-repository.svg" alt="Build Status"></a>
+[![Laravel Repository Build](https://github.com/lerouse/laravel-repository/actions/workflows/laravel-repository-build-test.yml/badge.svg)](https://github.com/lerouse/laravel-repository/actions/workflows/laravel-repository-build-test.yml)
 <a href="https://packagist.org/packages/lerouse/laravel-repository"><img src="https://img.shields.io/packagist/v/lerouse/laravel-repository" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/lerouse/laravel-repository"><img src="https://img.shields.io/packagist/l/lerouse/laravel-repository" alt="License"></a>
+[![Innerbichler UK](https://img.shields.io/badge/Powered%20By-innerbichler.uk-orange)](https://innerbichler.uk/)
 
 Model Repository implementation for the Laravel framework ^v6.0 and above.
 

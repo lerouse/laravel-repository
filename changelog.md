@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.3.0
+
++ Add license and update readme
+
 ## v2.2.1
 
 + Add GitHub workflow actions CI
