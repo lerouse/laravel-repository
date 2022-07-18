@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.2.1
+
++ Add GitHub workflow actions CI
+
 ## v2.2.0
 
 + Add RepositoryManagerService to enable easier access to autoload repositories
