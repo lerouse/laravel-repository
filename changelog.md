@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.4.0
+
++ Add support for Laravel 10
+
 ## v2.3.0
 
 + Add license and update readme
