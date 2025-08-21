@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.5.0
+
++ Add support for Laravel 11
+
 ## v2.4.0
 
 + Add support for Laravel 10

@@ -8,12 +8,13 @@ use Lerouse\LaravelRepository\Tests\Fixtures\Models\FailedModel;
 use Lerouse\LaravelRepository\Tests\Fixtures\Models\TestModel;
 use Lerouse\LaravelRepository\Tests\Fixtures\Repositories\TestModelRepository;
 use Lerouse\LaravelRepository\Tests\LaravelTestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class HasRepositoryTest extends LaravelTestCase
 {
     use RefreshDatabase;
 
-    /** @test **/
+    #[Test]
     public function can_get_models_repository(): void
     {
         $model = new TestModel;
@@ -23,7 +24,7 @@ class HasRepositoryTest extends LaravelTestCase
         self::assertInstanceOf(TestModelRepository::class, $repository);
     }
 
-    /** @test **/
+    #[Test]
     public function can_get_model_repository_namespace(): void
     {
         $model = new TestModel;
@@ -31,7 +32,7 @@ class HasRepositoryTest extends LaravelTestCase
         self::assertEquals('Lerouse\LaravelRepository\Tests\Fixtures\Repositories', $model->getRepositoryNamespace());
     }
 
-    /** @test **/
+    #[Test]
     public function can_get_route_model_binding_via_repository(): void
     {
         $testModel = factory(TestModel::class)->create();
@@ -44,7 +45,7 @@ class HasRepositoryTest extends LaravelTestCase
         );
     }
 
-    /** @test **/
+    #[Test]
     public function route_model_binding_via_repository_returns_null_if_no_model_available(): void
     {
         $model = new TestModel;
@@ -52,7 +53,7 @@ class HasRepositoryTest extends LaravelTestCase
         self::assertNull($model->resolveRouteBinding(1));
     }
 
-    /** @test **/
+    #[Test]
     public function model_missing_repository_throws_exception(): void
     {
         $this->expectException(RepositoryNotFoundException::class);
@@ -63,7 +64,7 @@ class HasRepositoryTest extends LaravelTestCase
         $model->getRepository();
     }
 
-    /** @test **/
+    #[Test]
     public function route_model_binding_throws_exception_if_no_repository_available(): void
     {
 

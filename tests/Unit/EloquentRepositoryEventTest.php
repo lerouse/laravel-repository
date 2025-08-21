@@ -14,6 +14,7 @@ use Lerouse\LaravelRepository\RepositoryInterface;
 use Lerouse\LaravelRepository\Tests\Fixtures\Models\TestModel;
 use Lerouse\LaravelRepository\Tests\Fixtures\Repositories\TestModelRepository;
 use Lerouse\LaravelRepository\Tests\LaravelTestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class EloquentRepositoryEventTest extends LaravelTestCase
 {
@@ -32,7 +33,7 @@ class EloquentRepositoryEventTest extends LaravelTestCase
         Event::fake();
     }
 
-    /** @test **/
+    #[Test]
     public function creating_a_model_fires_event(): void
     {
         $model = $this->repository->create(['value' => 'Test Model']);
@@ -42,7 +43,7 @@ class EloquentRepositoryEventTest extends LaravelTestCase
         });
     }
 
-    /** @test **/
+    #[Test]
     public function updating_a_model_fires_event(): void
     {
         $model = factory(TestModel::class)->create();
@@ -54,7 +55,7 @@ class EloquentRepositoryEventTest extends LaravelTestCase
         });
     }
 
-    /** @test **/
+    #[Test]
     public function deleting_a_model_fires_event(): void
     {
         $model = factory(TestModel::class)->create();
@@ -66,7 +67,7 @@ class EloquentRepositoryEventTest extends LaravelTestCase
         });
     }
 
-    /** @test **/
+    #[Test]
     public function creating_many_models_fires_event(): void
     {
         $this->repository->createMany([
@@ -79,7 +80,7 @@ class EloquentRepositoryEventTest extends LaravelTestCase
         });
     }
 
-    /** @test **/
+    #[Test]
     public function updating_many_models_fires_event(): void
     {
         $collection = factory(TestModel::class, 2)->create();
@@ -93,7 +94,7 @@ class EloquentRepositoryEventTest extends LaravelTestCase
         });
     }
 
-    /** @test **/
+    #[Test]
     public function deleting_many_models_fires_event(): void
     {
         $collection = factory(TestModel::class, 2)->create();
