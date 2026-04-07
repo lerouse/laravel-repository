@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.8.0
+
++ Add support for Laravel 13
+
 ## v2.7.0
 
 + Remove support for PHP 8.0 (end of life)
